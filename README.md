@@ -1,5 +1,5 @@
 # markupquill
-Create a LaTeX matrix from console input
+Tool that helps write LaTeX
 
 ### Usage:
 Creating a matrix with `-m` or `--matrix`
