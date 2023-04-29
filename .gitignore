@@ -1,4 +1,4 @@
 build/
 dist/
 __pycache__/
-app/latexmatrix.egg-info/
+app/markupquill.egg-info/

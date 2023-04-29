@@ -1,10 +1,10 @@
-# latexmatrix
+# markupquill
 Create a LaTeX matrix from console input
 
 ### Usage:
 Running
 ```bash
-latexmatrix "
+markupquill "
 1 2 3
 4 5 6"
 ```
@@ -19,8 +19,8 @@ $$\begin{bmatrix}1 & 2 & 3 \\\\ 4 & 5 & 6\end{bmatrix}$$
 
 ### Installation:
 ```bash
-git clone https://github.com/asgervelling/latex-matrix
-cd latex-matrix
+git clone https://github.com/asgervelling/markupquill
+cd markupquill
 pip install .
 ```
 

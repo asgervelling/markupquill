@@ -1,5 +1,5 @@
 import argparse
-from latexmatrix import parse_matrix_input, generate_latex_matrix
+from markupquill import parse_matrix_input, generate_latex_matrix
 
 
 def run():
