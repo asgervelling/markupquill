@@ -1,3 +1,6 @@
+from textwrap import dedent
+
+
 def matrix(m: list[list[str]]) -> str:
     """Generate LaTeX code for a matrix"""
 
@@ -26,4 +29,23 @@ def table(t: list[list[str]]) -> str:
         \end{tabular}
         \end{table}
     """
-    return '[Table]'
+    def elements(m):
+        rows = len(m)
+        match rows:
+            case 0:
+                return ''
+            case 1:
+                return f'{" & ".join(m[0])} \\\\'
+            case _:
+                return f'{" & ".join(m[0])} \\\\\n{elements(m[1:])}'
+            
+    
+    borders = f'|{"l|" * num_columns}'
+    start = dedent(f'''
+        \\begin{{table}}[]
+        \\begin{{tabular}}{{{borders}}}
+    ''')
+    end = dedent('''
+        \\end{tabular}
+        \\end{table}''')
+    return f'{start}{elements(t)}{end}'
