@@ -1,5 +1,5 @@
 # markupquill
-Tool that helps write LaTeX
+Tool to help write LaTeX
 
 ### Usage:
 Creating a matrix with `-m` or `--matrix`
