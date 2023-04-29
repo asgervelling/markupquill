@@ -36,6 +36,6 @@ def concat_rows(rows: list[list[str]]) -> str:
         case 0:
             return ''
         case 1:
-            return ' & '.join(rows[0])
+            return f'{" & ".join(rows[0])} \\\\'
         case _:
             return f'{" & ".join(rows[0])} \\\\\n{concat_rows(rows[1:])}'
