@@ -16,4 +16,14 @@ def matrix(m: list[list[str]]) -> str:
 
 def table(t: list[list[str]]) -> str:
     """Generate LaTeX code for a table"""
-    pass
+    num_columns = max(map(len, t))
+    example = """
+        \begin{table}[]
+        \begin{tabular}{lll}
+        ID & Name             & Country \\
+        1  & Elizabeth Turner & UK      \\
+        2  & Bob Adam         & Sweden 
+        \end{tabular}
+        \end{table}
+    """
+    return '[Table]'

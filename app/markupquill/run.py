@@ -14,8 +14,14 @@ def run():
         '--table', '-t', help='Separate columns with "|", rows with new lines'
     )
     args = parser.parse_args()
+    print(args)
 
     if args.matrix is not None:
         matrix = parse.matrix(args.matrix)
         latex_matrix = convert.matrix(matrix)
         print(latex_matrix)
+
+    if args.table is not None:
+        table = parse.table(args.table)
+        latex_table = convert.table(table)
+        print(latex_table)
