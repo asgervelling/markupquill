@@ -10,7 +10,7 @@ def run():
         help='Separate matrix elements with spaces, rows with new lines',
     )
     parser.add_argument(
-        '--table', '-t', help='Separate columns with "|", rows with new lines'
+        '--table', '-t', help='Separate columns with commas, rows with new lines'
     )
     args = parser.parse_args()
 
