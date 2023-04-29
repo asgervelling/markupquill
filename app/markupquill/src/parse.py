@@ -14,5 +14,3 @@ def table(input_string):
     parse_row = lambda row: map(str.strip, row.split(','))
     matrix = [list(parse_row(row)) for row in rows]
     return matrix
-
-

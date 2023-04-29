@@ -20,32 +20,30 @@ def matrix(m: list[list[str]]) -> str:
 def table(t: list[list[str]]) -> str:
     """Generate LaTeX code for a table"""
     num_columns = max(map(len, t))
-    example = """
-        \begin{table}[]
-        \begin{tabular}{lll}
-        ID & Name             & Country \\
-        1  & Elizabeth Turner & UK      \\
-        2  & Bob Adam         & Sweden 
-        \end{tabular}
-        \end{table}
-    """
-    def elements(m):
-        rows = len(m)
+
+    def table_rows(t, first_row=True):
+        rows = len(t)
         match rows:
             case 0:
                 return ''
             case 1:
-                return f'{" & ".join(m[0])} \\\\'
+                return f'{" & ".join(t[0])} \\\\'
             case _:
-                return f'{" & ".join(m[0])} \\\\\n{elements(m[1:])}'
-            
-    
+                line = '\\hline\n' if first_row else ''
+                return f'{" & ".join(t[0])} \\\\\n{line}{table_rows(t[1:], first_row=False)}'
+
     borders = f'|{"l|" * num_columns}'
-    start = dedent(f'''
+    start = dedent(
+        f'''
         \\begin{{table}}[]
         \\begin{{tabular}}{{{borders}}}
-    ''')
-    end = dedent('''
+        \\hline
+    '''
+    )
+    end = dedent(
+        '''
+        \\hline
         \\end{tabular}
-        \\end{table}''')
-    return f'{start}{elements(t)}{end}'
+        \\end{table}'''
+    )
+    return f'{start}{table_rows(t)}{end}'

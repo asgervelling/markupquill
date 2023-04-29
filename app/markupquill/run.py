@@ -14,7 +14,6 @@ def run():
         '--table', '-t', help='Separate columns with "|", rows with new lines'
     )
     args = parser.parse_args()
-    print(args)
 
     if args.matrix is not None:
         matrix = parse.matrix(args.matrix)
