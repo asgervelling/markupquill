@@ -3,7 +3,7 @@ from textwrap import dedent
 
 def matrix(rows: list[list[str]]) -> str:
     """Generate LaTeX code for a matrix"""
-    return f'\\begin{{bmatrix}}\n{concat_rows(rows)}\\end{{bmatrix}}'
+    return f'\\begin{{bmatrix}}\n{concat_rows(rows)}\n\\end{{bmatrix}}\n'
 
 
 def table(rows: list[list[str]]) -> str:

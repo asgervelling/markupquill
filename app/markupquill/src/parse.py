@@ -18,6 +18,7 @@ def matrix(input_: str) -> list[list[str]]:
 #     parse_row = lambda row: map(str.strip, row.split(','))
 #     return [list(parse_row(row)) for row in rows]
 
+
 def parse_row(row: str) -> list[str]:
     cells = row.split(',')
     stripped_cells = [cell.strip() for cell in cells]

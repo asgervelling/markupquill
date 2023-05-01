@@ -14,9 +14,9 @@ class TestParse(unittest.TestCase):
         self.assertEqual(expected, parse.matrix(dedent(input_string)))
 
     def test_table(self):
-        input_string = """
+        input_string = '''
             a, b and so and so , c 
-             d , e , f"""
+             d , e , f'''
         expected = [
             ['a', 'b and so and so', 'c'],
             [
