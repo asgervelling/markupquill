@@ -43,18 +43,16 @@ class TestParse(unittest.TestCase):
 
     def test_system_of_equations(self):
         input_ = '''
-            1 2 a a
-            a a 4a 1
+            1 2 -a a
+            -a a 4a 1
             a 2 2a^2 1'''
         expected = [
-            ['1', '2', 'a', 'a'],
-            ['a', 'a', '4a', '1'],
+            ['1', '2', '-a', 'a'],
+            ['-a', 'a', '4a', '1'],
             ['a', '2', '2a^2', '1'],
         ]
         self.assertEqual(expected, parse.system_of_equations(input_))
-        self.assertEqual(
-            expected, parse.system_of_equations(dedent(input_))
-        )
+        self.assertEqual(expected, parse.system_of_equations(dedent(input_)))
 
 
 if __name__ == '__main__':

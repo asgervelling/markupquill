@@ -7,12 +7,7 @@ from markupquill import convert
 class TestParse(unittest.TestCase):
     def test_matrix(self):
         input_matrix = [['a', 'b'], ['c', 'd']]
-        expected = (
-            '\\begin{bmatrix}\n'
-            'a & b \\\\\n'
-            'c & d \\\\\n'
-            '\\end{bmatrix}\n'
-        )
+        expected = '\\begin{bmatrix}\n' 'a & b \\\\\n' 'c & d \\\\\n' '\\end{bmatrix}\n'
         actual = convert.matrix(input_matrix)
         self.assertEqual(expected, actual)
 

@@ -7,17 +7,18 @@ def matrix(input_: str) -> list[list[str]]:
     return [row.split() for row in rows]
 
 
-def parse_row(row: str, delimiter_char=',') -> list[str]:
+def parse_row(row: str, delimiter=',') -> list[str]:
     """
     Turn a string into a list of strings,
     separated by the delimiter char (default: ',').
     Delimiter chars may be escaped with a backslash: \,.
     """
-    semi_escaped = row.replace(f'\\{delimiter_char}', 'ꙮ')
-    cells = semi_escaped.split(delimiter_char)
+    special_symbol = 'ꙮ' if 'ꙮ' != delimiter else 'ꝏ'
+    semi_escaped = row.replace(f'\\{delimiter}', special_symbol)
+    cells = semi_escaped.split(delimiter)
     stripped_cells = [cell.strip() for cell in cells]
     # Return the cells with commas escaped
-    return [cell.replace('ꙮ', delimiter_char) for cell in stripped_cells]
+    return [cell.replace(special_symbol, delimiter) for cell in stripped_cells]
 
 
 def table(input_: str) -> list[list[str]]:
@@ -34,3 +35,5 @@ def system_of_equations(input_: str) -> list[list[str]]:
     Parse a string representing a system of equations.
     Turn it into a list of lists - a matrix.
     """
+    rows = input_.strip().split('\n')
+    return [parse_row(row.strip(), delimiter=' ') for row in rows]

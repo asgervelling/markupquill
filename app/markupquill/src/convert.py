@@ -44,11 +44,7 @@ def system_of_equations(aug_matrix: list[list[str]]) -> str:
             if i == 0:
                 line_str = f'{term(c, i + 1)}'
             else:
-                term_str = (
-                    term(c[1:], i + 1)
-                    if is_negative(c)
-                    else term(c, i + 1)
-                )
+                term_str = term(c[1:], i + 1) if is_negative(c) else term(c, i + 1)
                 line_str += f'{operator(c)} & {term_str}'
         line_str += f' = {constant}'
         return line_str
@@ -68,11 +64,7 @@ def system_of_equations(aug_matrix: list[list[str]]) -> str:
             return ''
         return f' -{{}}' if is_negative(coefficient) else f' +{{}}'
 
-    return (
-        f'{start}\n'
-        + '\\\\\n'.join([line(row) for row in aug_matrix])
-        + f'\n{end}'
-    )
+    return f'{start}\n' + '\\\\\n'.join([line(row) for row in aug_matrix]) + f'\n{end}'
 
 
 def _table_header(row: list[str]):
