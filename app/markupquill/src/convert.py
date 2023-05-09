@@ -44,32 +44,32 @@ def system_of_equations(aug_matrix: list[list[str]]) -> str:
         constant = row[-1]
         for i, c in enumerate(coefficients):
             if i == 0:
-                line_str = f'{coeff(c, i + 1)} &'
+                line_str = f'{coeff(c, i + 1)}'
             else:
                 coeff_str = coeff(abs(c), i + 1) \
                             if c < 0 \
                             else coeff(c, i + 1)
-                line_str += f' {operator(c)} & {coeff_str} &'
+                line_str += f'{operator(c)} & {coeff_str}'
         line_str += f' = {constant}'
         return line_str
 
     def coeff(coefficient: int, index: str):
         if coefficient == 0:
-            return ''
+            return '&'
         if coefficient == 1:
-            return f'x_{{{index}}}'
-        return f'{coefficient}x_{{{index}}}'
+            return f'x_{{{index}}} &'
+        return f'{coefficient}x_{{{index}}} &'
 
     def operator(coefficient: int) -> str:
-        return f'-{{}}' if coefficient < 0 else f'+{{}}'
+        if coefficient == 0:
+            return ''
+        return f' -{{}}' if coefficient < 0 else f' +{{}}'
 
     return (
         f'{start}\n' +
         '\\\\\n'.join([line(row) for row in aug_matrix]) +
         f'\n{end}'
     )
-    return f'{start}\n' + '\\\\\n'.join([line(row) for row in aug_matrix]) + end
-
 
 def _table_header(row: list[str]):
     return f"{' & '.join(row)} \\\\\n\\hline\n"
