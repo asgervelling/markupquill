@@ -29,10 +29,9 @@ def table(input_: str) -> list[list[str]]:
     return [parse_row(row) for row in rows]
 
 
-""" 
-[
-    ['1', '2', '3', '4'],
-    ['1', '2', '3', ''],
-    ['1', '', '', ''],
-]
-"""
+def system_of_equations(input_: str) -> list[list[str]]:
+    """
+    Parse a string representing a system of equations.
+    Turn it into a list of lists - a matrix.
+    """
+    pass

@@ -41,6 +41,19 @@ class TestParse(unittest.TestCase):
         self.assertEqual(exp, parse.table(input_with_commas))
         self.assertEqual(exp, parse.table(dedent(input_with_commas)))
 
+    def test_system_of_equations(self):
+        input_ = '''
+            1 2 a a
+            a a 4a 1
+            a 2 2a^2 1'''
+        expected = [
+            ['1', '2', 'a', 'a'],
+            ['a', 'a', '4a', '1'],
+            ['a', '2', '2a^2', '1'],
+        ]
+        self.assertEqual(expected, parse.system_of_equations(input_))
+        self.assertEqual(expected, parse.system_of_equations(dedent(input_)))
+        
 
 if __name__ == '__main__':
     unittest.main()

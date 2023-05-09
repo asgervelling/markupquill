@@ -42,26 +42,29 @@ def system_of_equations(aug_matrix: list[list[str]]) -> str:
         constant = row[-1]
         for i, c in enumerate(coefficients):
             if i == 0:
-                line_str = f'{coeff(c, i + 1)}'
+                line_str = f'{term(c, i + 1)}'
             else:
-                coeff_str = coeff(abs(c), i + 1) \
-                            if c < 0 \
-                            else coeff(c, i + 1)
-                line_str += f'{operator(c)} & {coeff_str}'
+                term_str = term(c[1:], i + 1) \
+                            if is_negative(c) \
+                            else term(c, i + 1)
+                line_str += f'{operator(c)} & {term_str}'
         line_str += f' = {constant}'
         return line_str
+    
+    def is_negative(coefficient: str):
+        return coefficient.strip()[0] == '-'
 
-    def coeff(coefficient: int, index: str):
-        if coefficient == 0:
+    def term(coefficient: str, index: str):
+        if coefficient == '0':
             return '&'
-        if coefficient == 1:
+        if coefficient == '1':
             return f'x_{{{index}}} &'
         return f'{coefficient}x_{{{index}}} &'
 
-    def operator(coefficient: int) -> str:
-        if coefficient == 0:
+    def operator(coefficient: str) -> str:
+        if coefficient == '0':
             return ''
-        return f' -{{}}' if coefficient < 0 else f' +{{}}'
+        return f' -{{}}' if is_negative(coefficient) else f' +{{}}'
 
     return (
         f'{start}\n' +
