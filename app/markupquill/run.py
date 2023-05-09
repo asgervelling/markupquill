@@ -3,14 +3,18 @@ from markupquill import parse, convert
 
 
 def run():
-    parser = argparse.ArgumentParser(description='Generate LaTeX for a matrix or table')
+    parser = argparse.ArgumentParser(
+        description='Generate LaTeX for a matrix or table'
+    )
     parser.add_argument(
         '--matrix',
         '-m',
         help='Separate matrix elements with spaces, rows with new lines',
     )
     parser.add_argument(
-        '--table', '-t', help='Separate columns with commas, rows with new lines'
+        '--table',
+        '-t',
+        help='Separate columns with commas, rows with new lines',
     )
     args = parser.parse_args()
 

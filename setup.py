@@ -9,7 +9,9 @@ setup(
     description="Create a LaTeX matrix from console input",
     package_dir={"": "app"},
     packages=find_packages(where="app"),
-    entry_points={'console_scripts': ['markupquill=markupquill.run:run']},
+    entry_points={
+        'console_scripts': ['markupquill=markupquill.run:run']
+    },
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/asgervelling/markupquill",

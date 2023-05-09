@@ -52,8 +52,10 @@ class TestParse(unittest.TestCase):
             ['a', '2', '2a^2', '1'],
         ]
         self.assertEqual(expected, parse.system_of_equations(input_))
-        self.assertEqual(expected, parse.system_of_equations(dedent(input_)))
-        
+        self.assertEqual(
+            expected, parse.system_of_equations(dedent(input_))
+        )
+
 
 if __name__ == '__main__':
     unittest.main()
