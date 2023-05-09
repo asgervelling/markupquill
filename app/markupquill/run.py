@@ -21,5 +21,6 @@ def run():
 
     if args.table is not None:
         table = parse.table(args.table)
+        print(table)
         latex_table = convert.table(table)
         print(latex_table)

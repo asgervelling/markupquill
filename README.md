@@ -38,3 +38,10 @@ pip install .
 ```
 
 In your LaTeX document, be sure to `\usepackage{amsmath}`.
+
+### Testing
+```bash
+chmod +x run_tests.sh
+# Install and run tests
+./run_tests.sh -i
+```
