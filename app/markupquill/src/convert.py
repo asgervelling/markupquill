@@ -32,8 +32,6 @@ def system_of_equations(aug_matrix: list[list[str]]) -> str:
     Generate LaTeX code for a system of equations,
     based on an augmented matrix.
     """
-    print(aug_matrix)
-    m = len(aug_matrix)
     n = len(aug_matrix[0])
     num_coefficients = n - 1
     start = '\left\{\n' f'\\begin{{alignedat}}{{{num_coefficients}}}'
